@@ -1,0 +1,32 @@
+<p>myapp works!</p>
+
+{{myappname}}
+{{"welcome"+" "+myappname}}
+<p *ngFor = 'let e of bro'>{{e.name}}...{{e.age}}</p>
+<p *ngFor="let e of pro">{{e.name}}....{{e.age}}</p>
+<input type="text"value="{{myappname}}">
+<input type="text" [value]="myappname" [disabled]="isDisabled">
+<input type="text" #myname [value]="myappname" disabled="{{isDisabled}}">
+<button (click)="onClick($event)">click</button>
+<button (click)="temp(myname.value)">temp</button>
+{{myname.value}}
+<p *ngIf="show; else elseBlock" >hi everyone</p>
+<ng-template #elseBlock><p>not hi everyone</p></ng-template>
+
+<p *ngIf="!show">hi everyone</p>
+<ul><li *ngFor="let e of arr;first as t">{{t}} {{e}}</li></ul>
+<table>
+    <tr>
+        <th>name</th>
+        <th>age</th>
+    </tr>
+<tr *ngFor="let h of arrobj"><td>
+    {{h.name}}
+</td>
+<td>
+    {{h.age}}
+</td></tr>
+</table>
+<input type="text" [(ngModel)]="twoway">
+{{twoway}}
+<button (click)="get()">get</button>
