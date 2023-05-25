@@ -6,7 +6,8 @@ import { MyappComponent } from './myapp/myapp.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit,AfterContentInit{
+ 
 
   message=" "
   @ViewChild(MyappComponent) child:any;
@@ -30,8 +31,13 @@ export class AppComponent implements AfterViewInit{
 get1(event:string){
 console.log(" ",event)
 }
+ngAfterContentInit(): void {
+  // throw new Error('Method not implemented.');
+  console.log("hari")
+}
 ngAfterViewInit(): void {
   // throw new Error('Method not implemented.'); 
   this.message= this.child.myappname
 }
+
 }

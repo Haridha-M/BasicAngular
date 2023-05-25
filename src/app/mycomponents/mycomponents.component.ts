@@ -1,4 +1,5 @@
-import { Component,OnInit,OnChanges, SimpleChanges,AfterViewInit,AfterContentChecked,AfterContentInit,AfterViewChecked,OnDestroy,DoCheck } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component,OnInit,OnChanges, SimpleChanges,AfterViewInit,AfterContentChecked,AfterContentInit,AfterViewChecked,OnDestroy,DoCheck,Output, EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -7,7 +8,19 @@ import { Component,OnInit,OnChanges, SimpleChanges,AfterViewInit,AfterContentChe
   styleUrls: ['./mycomponents.component.css']
 })
 export class MycomponentsComponent implements OnInit,OnChanges,AfterViewInit,AfterContentChecked,AfterContentInit,AfterViewChecked,OnDestroy,DoCheck {
- myname:string="hari";
+ myname:string="Form";
+ num:number=1;
+ 
+ title1 = [{
+  name:'selva',
+  age:90
+},
+{
+name:'haritha',
+age:20
+}];
+@Output() public arr=new EventEmitter()
+ currentCustomer = 'Maria';
   constructor(){
     console.log("inside constructor")
   }
@@ -43,6 +56,27 @@ export class MycomponentsComponent implements OnInit,OnChanges,AfterViewInit,Aft
     // throw new Error('Method not implemented.');
     console.log("oninit")
   }
+  increment(){
 
+this.num+=1;  
+  }
+  decrement(){
+    if(this.num>0)
+    this.num-=1
+  }
+  user = {
+    name: '',
+    email: '',
+    password: ''
+  };
+
+  onSubmit() {
+    console.log(this.user);
+    // You can perform additional actions here, such as sending the data to a server
+  }
+
+  submit(){
+    this.arr.emit(this.title1)
+  }
 
 }

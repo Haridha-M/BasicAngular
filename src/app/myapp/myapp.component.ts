@@ -31,6 +31,7 @@ arrobj:any[]=[
     age:80
   }
 ]
+
 constructor(){
   console.log("inside constructor")
 }
